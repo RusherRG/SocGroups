@@ -1,0 +1,10 @@
+.container{
+    margin-top: 10vh;
+}
+
+.logincard {
+    display: inline-block;
+    margin: auto;
+    padding: 32px 48px 0px 48px;
+    border: 1px solid #EEE;
+}
