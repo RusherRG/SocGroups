@@ -1,10 +1,19 @@
-.container{
-    margin-top: 10vh;
+body {
+    background-color: linear-gradient(to bottom right, rgb(14, 54, 233));
+}
+
+.container {
+    margin-top: 5vh;
 }
 
 .logincard {
     display: inline-block;
     margin: auto;
     padding: 32px 48px 0px 48px;
-    border: 1px solid #EEE;
+    box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
+}
+
+.text-title {
+    font-family: 'Lora', serif; 
+    color: rgb(72, 0, 144);
 }
