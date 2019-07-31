@@ -1,0 +1,10 @@
+p.promotext{
+    font-size: 20px;
+    color: blueviolet;
+}
+
+.promocard{
+    margin:auto;
+    display: inline-block;
+    padding: 30px 30px 20px 20px;
+}

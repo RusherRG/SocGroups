@@ -5,49 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/login.css">
-<title>Sign up</title>
+    <title>Sign up</title>
 </head>
 
 <body>
+    <nav>
+        <div class="deep-purple darken-1 nav-wrapper" style="padding: 0px 0px 15px 15px;">
+            <a href="index.html" class="brand-logo">SocGroups</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="register.html">Sign up</a></li>
+                <li><a href="login.html">Sign in</a></li>
+                <!-- <li><a href="#">JavaScript</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <center>
+            <div class="container">
+                <h2 style="color:rebeccapurple;">Sign in</h2>
+                <div class="logincard z-depth-1 grey lighten-4 row">
 
-    <center>
-        <div class="container">
-            <h1>Sign up</h1>
-            <div class="logincard z-depth-1 grey lighten-4 row">
-
-                <form class="col s12" method="post">
-                    <div class='row'>
-                        <div class='input-field col s12'>
-                            <input class='validate' type='email' name='email' id='email' />
-                            <label for='email'>Email</label>
+                    <form class="col s12" method="post">
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='email' name='email' id='email' />
+                                <label for='email'>Email</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class='row'>
-                        <div class='input-field col s12'>
-                            <input class='validate' type='password' name='password' id='password' />
-                            <label for='password'>Password</label>
-                        </div>
-                        <label style='float: right;'>
+                        <div class='row'>
+                            <div class='input-field col s12'>
+                                <input class='validate' type='password' name='password' id='password' />
+                                <label for='password'>Password</label>
+                            </div>
+                            <label style='float: right;'>
                                 <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
                             </label>
-                    </div>
-                    <br />
-                    <center>
-                        <div class='row'>
-                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
                         </div>
-                    </center>
-                </form>
+                        <br />
+                        <center>
+                            <div class='row'>
+                                <button type='submit' name='btn_login'
+                                    class='col s12 btn btn-large waves-effect deep-purple'>Login</button>
+                            </div>
+                        </center>
+                    </form>
+                </div>
             </div>
-        </div>
-        <a href="#!">Create account</a>
-    </center>
-
+            <a href="#!">Create account</a>
+        </center>
+    </main>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript" src="static/js/login.js"></script>
 </body>
 
