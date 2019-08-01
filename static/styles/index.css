@@ -1,0 +1,23 @@
+body{
+    background-color:white;
+}
+
+p.promotext{
+    font-size: 20px;
+    color: blueviolet;
+    padding: 30px 30px 20px 20px;
+}
+
+.promocard{
+    margin: 20px;
+    padding: 30px 30px 20px 20px;
+   
+}
+
+.headcard{
+    padding: 50px 50px 50px 50px; 
+    margin: auto; 
+    background-image: linear-gradient(to bottom right, #673ab7,#64b5f6 );
+    /* font-size: 70px;  */
+    color: white;
+}

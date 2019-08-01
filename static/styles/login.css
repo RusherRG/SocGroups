@@ -1,19 +1,36 @@
 body {
+    display: flex;
     background-color: linear-gradient(to bottom right, rgb(14, 54, 233));
+    align-items: center;
 }
 
 .container {
-    margin-top: 5vh;
+    overflow: hidden;
+    position: relative;
 }
 
-.logincard {
+.login-card {
+    background-color: #ffffff;
     display: inline-block;
     margin: auto;
     padding: 32px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
+    border-radius: 1vw;
 }
 
-.text-title {
-    font-family: 'Lora', serif; 
-    color: rgb(72, 0, 144);
+.main-card {
+    display: inline-block;
+    margin: auto;
+    padding: 32px 48px 0px 48px;
+    background-image: linear-gradient(to bottom right, #6a1b9a ,#4c55d6);
+    border-radius: 1vw;
+}
+
+input:focus + label{
+    color: #6a1b9a !important;
+}
+
+.row input:focus{
+    border-bottom: 1px solid #6a1b9a !important;
+    box-shadow: 0 1px 0 0 #6a1b9a !important
 }
