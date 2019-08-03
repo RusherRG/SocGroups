@@ -6,59 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/login.css">
-<title>Sign in</title>
+    <title>Sign in</title>
 </head>
 
 <body>
-    <nav>
-        <div class="deep-purple darken-4 nav-wrapper z-depth-1" style="padding: 0px 0px 15px 15px;">
-            <a href="index.html" class="brand-logo">SocGroups</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="register.html">Sign up</a></li>
-                <li><a href="login.html">Sign in</a></li>
-                <!-- <li><a href="#">JavaScript</a></li> -->
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
+        <div class="col s12 m12">
+            <div class="card main-card">
+                <div class="row">
+                    <div class="col s6 m6">
+                        <div class=" card login-card">
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <i class="material-icons prefix" style="color: #6a1b9a">email</i>
+                                    <input class='validate' type='email' name='email' id='email' />
+                                    <label for='email'>Email</label>
+                                </div>
+                            </div>
 
-    <center>
-        <div class="container">
-            <h1 class="text-title">Sign In</h1>
-            <div class="logincard z-depth-1 grey lighten-4 row">
-
-                <form class="col s12" method="post">
-                    <div class='row'>
-                        <div class='input-field col s12'>
-                            <input class='validate' type='email' name='email' id='email' />
-                            <label for='email'>Email</label>
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <i class="material-icons prefix" style="color: #6a1b9a">vpn_key</i>
+                                    <input class='validate' type='password' name='password' id='password' />
+                                    <label for='password'>Password</label>
+                                </div>
+                                <label style='float: right;'>
+                                    <a class='pink-text' href='login.html'><b>Already have an account?</b></a>
+                                </label>
+                            </div>
                         </div>
                     </div>
-
-                    <div class='row'>
-                        <div class='input-field col s12'>
-                            <input class='validate' type='password' name='password' id='password' />
-                            <label for='password'>Password</label>
-                        </div>
-                        <label style='float: right;'>
-                                <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
-                            </label>
+                    <div class="col s6 m6">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                        but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                        and more recently with desktop publishing software like Aldus PageMaker including versions of
+                        Lorem Ipsum.
                     </div>
-                    <br />
-                    <center>
-                        <div class='row'>
-                            <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect deep-purple darken-4'>Login</button>
-                        </div>
-                    </center>
-                </form>
+                </div>
             </div>
         </div>
-        <a href="#!" style="font-size: 1vw">Create account</a>
-    </center>
+    </div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     <script type="text/javascript" src="static/js/login.js"></script>
 </body>
 

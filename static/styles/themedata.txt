@@ -1,0 +1,6 @@
+Colors:
+navbar:
+gradient: purple-darken-3 to blue accent-4
+
+header card index:
+gradient: deep-purple to blue-lighten-2
