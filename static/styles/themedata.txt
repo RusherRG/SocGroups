@@ -1,6 +1,9 @@
-Colors:
-navbar:
-gradient: purple-darken-3 to blue accent-4
 
-header card index:
-gradient: deep-purple to blue-lighten-2
+Theme colors:
+Primary: #512da9 deep-purple darken-2
+Primary light: #8559da 
+Primary dark: #140078
+
+Secondary: #c5cae9 indigo lighten-4
+Secondary light:#f8fdff
+Secondary dark: #9499b7

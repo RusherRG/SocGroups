@@ -5,19 +5,21 @@ body{
 p.promotext{
     font-size: 20px;
     color: blueviolet;
-    padding: 30px 30px 20px 20px;
+    padding: 10px;
 }
 
 .promocard{
-    margin: 20px;
-    padding: 30px 30px 20px 20px;
-   
+    /* margin: 1px; */
+    /* padding: 20px; */
+    background-color: #f8fdff;
 }
 
 .headcard{
-    padding: 50px 50px 50px 50px; 
-    margin: auto; 
-    background-image: linear-gradient(to bottom right, #673ab7,#64b5f6 );
+    /* padding: 50px 50px 50px 50px;  */
+    /* margin: auto;  */
+    /* background-color: #512da9; */
+    /* background-image: linear-gradient(to bottom right, #512da9,#c5cae9 ); */
     /* font-size: 70px;  */
+    background-image: linear-gradient(to bottom right, #140078 ,#8559da);
     color: white;
 }
