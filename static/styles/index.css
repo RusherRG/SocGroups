@@ -23,3 +23,17 @@ p.promotext{
     background-image: linear-gradient(to bottom right, #140078 ,#8559da);
     color: white;
 }
+
+.page-footer{
+    background-color: #9499b7;
+    padding: 1em;
+}
+
+.page-footer ul{
+    margin: 20px;
+}
+
+.page-footer a{
+    color: white;
+    text-decoration: none;
+}
