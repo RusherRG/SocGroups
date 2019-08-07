@@ -2,16 +2,27 @@ body{
     background-color:white;
 }
 
-p.promotext{
-    font-size: 20px;
-    color: blueviolet;
+.promotext{
+    color: #512da9;
     padding: 10px;
+    margin: 0px 30px;
 }
+
+h5.promotext{
+    font-size: 22px;
+}
+
+h6.promotext{
+    color: #1B1C1D;
+    margin: 2vh 5vh;
+}
+
 
 .promocard{
     /* margin: 1px; */
     /* padding: 20px; */
     background-color: #f8fdff;
+    padding: 10vh 10vw;
 }
 
 .headcard{
@@ -20,12 +31,12 @@ p.promotext{
     /* background-color: #512da9; */
     /* background-image: linear-gradient(to bottom right, #512da9,#c5cae9 ); */
     /* font-size: 70px;  */
-    background-image: linear-gradient(to bottom right, #140078 ,#8559da);
+    background-image: linear-gradient(to bottom right, #140078 ,#B04276);
     color: white;
 }
 
 .page-footer{
-    background-color: #9499b7;
+    background-color: #1B1C1D;
     padding: 1em;
 }
 
