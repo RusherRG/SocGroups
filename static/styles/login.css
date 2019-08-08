@@ -11,9 +11,8 @@ body {
 .login-card {
     background-color: #ffffff;
     display: flex;
-    align-items: center;
     margin: auto;
-    padding: 32px 48px 0px 48px;
+    padding: 10px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
     border-radius: 1vw;
 }
@@ -22,7 +21,7 @@ body {
     background-color: #ffffff;
     display: flex;
     margin: auto;
-    padding: 32px 48px 0px 48px;
+    padding: 10px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
     border-radius: 1vw;
 }
