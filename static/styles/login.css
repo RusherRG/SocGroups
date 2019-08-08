@@ -1,6 +1,5 @@
 body {
     display: flex;
-    background-color: linear-gradient(to bottom right, rgb(14, 54, 233));
     align-items: center;
 }
 
@@ -11,7 +10,17 @@ body {
 
 .login-card {
     background-color: #ffffff;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 32px 48px 0px 48px;
+    box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
+    border-radius: 1vw;
+}
+
+.register-card {
+    background-color: #ffffff;
+    display: flex;
     margin: auto;
     padding: 32px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
@@ -23,8 +32,12 @@ body {
     margin: auto;
     padding: 32px 48px 0px 48px;
     /* background-image: linear-gradient(to bottom right, #140078,#8559da  );*/
-    background-image: linear-gradient(to bottom right,#140078,rgb(176, 66, 117)) ;
+    background-image: linear-gradient(to bottom right,#23416B,#B04276) ;
     border-radius: 1vw;
+}
+
+.tabs {
+    background-color: transparent;
 }
 
 input:focus + label{
