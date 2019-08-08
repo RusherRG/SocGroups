@@ -36,8 +36,29 @@ body {
     border-radius: 1vw;
 }
 
-.tabs {
+
+.tab{
+    border: 1px solid white; 
     background-color: transparent;
+}
+
+.tab:hover{
+    background-color: #23416B ;
+}
+
+
+.left-curve{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.right-curve{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 input:focus + label{
