@@ -11,9 +11,8 @@ body {
 .login-card {
     background-color: #ffffff;
     display: flex;
-    align-items: center;
     margin: auto;
-    padding: 32px 48px 0px 48px;
+    padding: 10px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
     border-radius: 1vw;
 }
@@ -22,7 +21,7 @@ body {
     background-color: #ffffff;
     display: flex;
     margin: auto;
-    padding: 32px 48px 0px 48px;
+    padding: 10px 48px 0px 48px;
     box-shadow: 0 0 5px 5px rgba(84, 2, 161, 0.178);
     border-radius: 1vw;
 }
@@ -42,10 +41,13 @@ body {
     background-color: transparent;
 }
 
-.tab:hover{
-    background-color: #23416B ;
+#login_tab{
+    background-color: #E2EAEF;
 }
 
+/* .tab:hover{
+    background-color: #B04276;
+} */
 
 .left-curve{
     border-top-left-radius: 50px;
@@ -68,4 +70,10 @@ input:focus + label{
 .row input:focus{
     border-bottom: 1px solid #6a1b9a !important;
     box-shadow: 0 1px 0 0 #6a1b9a !important
+}
+
+.submit{
+    border: 1px solid #B04276; 
+    background-color: transparent;
+    border-radius: 50px;
 }

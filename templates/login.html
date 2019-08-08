@@ -19,21 +19,25 @@
                 <div class="row">
                     <div class="col s6 m6">
                         <div class="row center-align">
-                            <button class="waves-effect waves-light btn tab left-curve" onclick="switch_tab('log')">Sign In</a>
-                            <button class="waves-effect waves-light btn tab right-curve" onclick="switch_tab('reg')">Sign Up</a>
+                            <button class="waves-effect waves-light btn tab left-curve" id='login_tab' onclick="switch_tab('log')">Sign In</a>
+                            <button class="waves-effect waves-light btn tab right-curve" id='reg_tab' onclick="switch_tab('reg')">Sign Up</a>
                         </div>
                         <div id="login-div" style="display: flex">
-                            <form class="card login-card">
+                            <form class="card login-card" method='POST' action="login.php">
                                 <div class='row'>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">email</i>
+                                        <i class="material-icons prefix" style="color: #23416B">email</i>
                                         <input class='validate' type='email' name='email' id='email' />
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">vpn_key</i>
+                                        <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
                                         <input class='validate' type='password' name='password' id='password' />
                                         <label for='password'>Password</label>
+                                    </div>
+                                    <!-- <input type="submit" class="waves-effect waves-light btn submit" onclick="login()" value="Login"> -->
+                                    <div class='col s12 center-align'>
+                                        <button class="waves-effect waves-light btn submit" onclick="login()">Login</button>
                                     </div>
                                 </div>
                             </form>
@@ -42,31 +46,33 @@
                             <form class="card register-card">
                                 <div class='row'>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">person</i>
+                                        <i class="material-icons prefix" style="color: #23416B">person</i>
                                         <input class='validate' type='text' name='name' id='name' />
                                         <label for='name'>Name</label>
                                     </div>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">email</i>
+                                        <i class="material-icons prefix" style="color: #23416B">email</i>
                                         <input class='validate' type='email' name='email' id='email' />
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">phone</i>
-                                        <input class='validate' type='number' name='phone' id='phone' />
+                                        <i class="material-icons prefix" style="color: #23416B">phone</i>
+                                        <input class='validate' type='tel' name='phone' id='phone' />
                                         <label for='phone'>Phone No.</label>
                                     </div>
                                     <div class='input-field col s12'>
-                                        <i class="material-icons prefix" style="color: #6a1b9a">vpn_key</i>
+                                        <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
                                         <input class='validate' type='password' name='password' id='password' />
                                         <label for='password'>Password</label>
                                     </div>
-                                </div>
-                                <a class="waves-effect waves-light btn" onclick="switch_tab('reg')">Register</a>
+                                    <div class='col s12 center-align'>
+                                        <button class="waves-effect waves-light btn submit" onclick="register()">Register</button>
+                                    </div>
+                                </div>    
                             </form>
                         </div>
                     </div>
-                    <div class="col s6 m6">
+                    <div class="col s6 m6 center-align">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
                         the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
                         of type and scrambled it to make a type specimen book. It has survived not only five centuries,
