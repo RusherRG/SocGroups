@@ -28,11 +28,16 @@ h6.promotext{
 .headcard{
     /* padding: 50px 50px 50px 50px;  */
     /* margin: auto;  */
-    /* background-color: #512da9; */
+    background-color: #512da9;
     /* background-image: linear-gradient(to bottom right, #512da9,#c5cae9 ); */
     /* font-size: 70px;  */
-    background-image: linear-gradient(to bottom right, #140078 ,#B04276);
+    /* background-image: linear-gradient(to bottom right, #140078 ,#B04276); */
     color: white;
+    animation-name: bgcolor;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+
 }
 
 .page-footer{
@@ -48,3 +53,16 @@ h6.promotext{
     color: white;
     text-decoration: none;
 }
+
+@keyframes bgcolor {
+    0% {background-image: linear-gradient(to bottom right, #140078 ,#B04276);}
+    25% {background-image: linear-gradient(to bottom right,  #B04276, #140078 , #B04276);}
+    50% {background-image: linear-gradient(to bottom right, #140078 , #B04276, #140078);}
+    75% {background-image: linear-gradient(to bottom right, #B04276,#140078 ,#B04276);}
+    100% {background-image: linear-gradient(to bottom right, #140078 ,#B04276);}
+  }
+
+  /* @-webkit-keyframes bgcolor {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  } */
