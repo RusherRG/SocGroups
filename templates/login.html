@@ -23,21 +23,21 @@
                             <button class="waves-effect waves-light btn tab right-curve" id='reg_tab' onclick="switch_tab('reg')">Sign Up</a>
                         </div>
                         <div id="login-div" style="display: flex">
-                            <form class="card login-card" method='POST' action="login.php">
+                            <form class="card login-card" method='POST' action="../php/login.php">
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
-                                        <input class='validate' type='email' name='email' id='email' />
+                                        <input class='validate' type='email' name='log_email' id='log_email' />
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
-                                        <input class='validate' type='password' name='password' id='password' />
+                                        <input class='validate' type='password' name='log_password' id='log_password' />
                                         <label for='password'>Password</label>
                                     </div>
                                     <!-- <input type="submit" class="waves-effect waves-light btn submit" onclick="login()" value="Login"> -->
                                     <div class='col s12 center-align'>
-                                        <button class="waves-effect waves-light btn submit" onclick="login()">Login</button>
+                                        <button class="waves-effect waves-light btn submit" type="submit">Login</button>
                                     </div>
                                 </div>
                             </form>
@@ -52,7 +52,7 @@
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
-                                        <input class='validate' type='email' name='email' id='email' />
+                                        <input class='validate' type='email' name='email' id='reg_email' />
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
-                                        <input class='validate' type='password' name='password' id='password' />
+                                        <input class='validate' type='password' name='password' id='reg_password' />
                                         <label for='password'>Password</label>
                                     </div>
                                     <div class='col s12 center-align'>
