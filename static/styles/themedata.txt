@@ -21,3 +21,5 @@ Light Steel Blue
 #E2EAEF
 Old Rose
 #B04276
+
+icon-color: #23416B

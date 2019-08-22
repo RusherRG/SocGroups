@@ -3,13 +3,17 @@ function switch_tab(tab) {
         document.getElementById('login-div').style.display = 'flex';
         document.getElementById('register-div').style.display = 'None';
         document.getElementById('login_tab').style.backgroundColor = '#E2EAEF';
+        document.getElementById('login_tab').style.color = '#23416B';
         document.getElementById('reg_tab').style.backgroundColor = 'transparent';
+        document.getElementById('reg_tab').style.color = 'white';
     }
     else{
         document.getElementById('login-div').style.display = 'None';
         document.getElementById('register-div').style.display = 'flex';
         document.getElementById('login_tab').style.backgroundColor = 'transparent';
+        document.getElementById('login_tab').style.color = 'white';
         document.getElementById('reg_tab').style.backgroundColor = '#E2EAEF';
+        document.getElementById('reg_tab').style.color = '#23416B';
     }
 }
 

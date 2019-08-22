@@ -39,10 +39,17 @@ body {
 .tab{
     border: 1px solid white; 
     background-color: transparent;
+    color: white;
+}
+
+.tab:hover{
+    background-color: #B04276 !important;
+    color: white !important;
 }
 
 #login_tab{
     background-color: #E2EAEF;
+    color: #23416B;
 }
 
 /* .tab:hover{
@@ -64,16 +71,21 @@ body {
 }
 
 input:focus + label{
-    color: #6a1b9a !important;
+    color: #23416B !important;
 }
 
 .row input:focus{
-    border-bottom: 1px solid #6a1b9a !important;
-    box-shadow: 0 1px 0 0 #6a1b9a !important
+    border-bottom: 1px solid #23416B !important;
+    box-shadow: 0 1px 0 0 #23416B !important
 }
 
 .submit{
-    border: 1px solid #B04276; 
-    background-color: transparent;
+    border: 1px solid #23416B; 
+    background-color: #23416B;
     border-radius: 50px;
+}
+
+.submit:hover{
+    background-color: #B04276;
+    border: 1px solid #B04276;
 }
