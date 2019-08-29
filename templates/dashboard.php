@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    session_start();
+    require_once("../php/config.php");
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +12,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
-    <title>SocGroups</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/dash.css">
+    <title>SocGroups - Dashboard</title>
 </head>
 
 <body>
@@ -25,48 +29,39 @@
                             </ul>
                         </div>
                     </nav> -->
-            <div class="row col s6 m6 offset s6 nav-wrapper">
-                <ul class="right hide-on-med-and-down" style="float: right; margin: 10px;">
-                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Sign in</a></li>
-                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Contact us</a></li>
-                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;"></a>About us</a></li>
+            <!-- <nav class="deep-purple">  -->
+            <div class="row col s8 m6 offset s6 nav-wrapper" style="margin-bottom: 0px;">
+                <a href="./index.html" style="color:white; margin:20px; float:left; font-size: 28px;">SocGroups</a>
+                    
+                <ul class="right hide-on-med-and-down" style="margin: 10px;">
+                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Sign in</a>
+                    </li>
+                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Contact
+                            us</a></li>
+                    <li style="float: right; margin: 20px;"><a href="" style="color:white;"></a>About us</a></li>
                 </ul>
-            </div>
-            <div class="row" style="padding:20px; padding-bottom:50px;">
-                <p style="font-size: 70px; margin: 20px;" class="row left col s5 m3 ">SocGroups
-                </p>
-                <p class="row col s2"></p>
-                <p style="font-size: 20px; margin:30px;" class="row right col s5 m5">A society
-                    management application that brings communities closer and aids home security</p>
             </div>
         </div>
     </header>
 
     <main>
-        <div style="margin-left:5%; margin-right:5%;">
-            <center>
+        <!-- <?php
+            $qside = "SELECT member.name from member where member.id=". $_SESSION['member_id'] .";";
+            $result = pg_query($conn, $qside);
+            $name = pg_fetch_result($result,0,0);
+        ?> -->
+        <!-- <div style="margin-left:5%; margin-right:5%;"> -->
+            <!-- <center> -->
                 <div class="row" style="display:flex">
-                    <div class="promocard card hoverable col s4 ">
-                        <i class="large material-icons text-darken-2 promotext">people</i>
-                        <h5 class="promotext">Connect with your community</h5>
-                        <h6 class="promotext">Create and join society groups to be up to date with your community</h6>
-
+                    <div class="sidebar col s4">
+                        <h3 class="etext">Hello <?php echo $_SESSION['username'];?></h3>
                     </div>
-                    <div class="promocard card hoverable col s4">
-                        <i class="large material-icons text-darken-2 promotext">question_answer</i>
-                        <h5 class="promotext">Start a discussion</h5>
-                        <h6 class="promotext">Initiate a conversation with society members on the Notice Board</h6>
-
-                    </div>
-                    <div class="promocard card hoverable col s4">
-                        <i class="large material-icons text-darken-2 promotext">verified_user</i>
-                        <h5 class="promotext">Stay secure</h5>
-                        <h6 class="promotext">Smart guard technology to notify you about visitors</h6>
-
+                    <div class="content col s8">
+                        <h3>Hellooooo</h3>
                     </div>
                 </div>
-            </center>
-        </div>
+            <!-- </center> -->
+        <!-- </div> -->
     </main>
     <footer>
         <div class="page-footer">

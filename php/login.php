@@ -1,4 +1,5 @@
 <?php
+   
     require_once('./config.php');
     $email="";
     $pwd="";
@@ -10,9 +11,11 @@
         try{ 
             print_r($conn);
             echo "$email $pwd";
-            $query = "SELECT member.email, member.password from member where email='".$email."';";
+            $query = "SELECT member.email, member.password, member.id,member.name from member where email='".$email."';";
             $result = pg_query($conn,$query);
             $db_pwd = pg_fetch_result($result,0,1);
+            $member_id = pg_fetch_result($result,0,2); 
+            $name = pg_fetch_result($result,0,3);
         } catch(Exception $e){
             echo "Failed";
         }
@@ -20,14 +23,20 @@
         echo "$email $pwd";
         if($pwd == $db_pwd){
            // echo "WOOOOOOOOOOO";
-           header("Location: ../templates/index.html"); 
+           session_start();
+           $_SESSION['loggedIn'] = true;
+           $_SESSION['member_id'] = $member_id;
+           $_SESSION['username'] = $name;
+           header("Location: ../templates/dashboard.php"); 
         }
         else{
-            header("Location: ../templates/login.html"); 
+            header("Location: ../templates/index.html"); 
         }
 
     }
+
     else if(isset($_POST['reg_email'])){
+        echo "inside reg";
         $email = $_POST['reg_email'];
         $pwd = $_POST['reg_password'];
         $phone = $_POST['phone'];
@@ -35,11 +44,16 @@
         try{ 
             print_r($conn);
             // echo "$email $pwd";
-            $query = "INSERT INTO member(name,email,password,phone) VALUES ($name, $email, $pwd, $phone);";
+            $query = "INSERT INTO member(name,email,password,phone) VALUES ('$name', '$email', '$pwd', $phone);";
             $result = pg_query($conn,$query);
             // $db_pwd = pg_fetch_result($result,0,1);
             if($result){
-                header("Location: ../templates/index.html");
+                $query = "SELECT member.id from member where email='".$email."';";
+                $result = pg_query($conn,$query);         
+                $member_id = pg_fetch_result($result,0,0);
+                $_SESSION['loggedIn'] = true;
+                $_SESSION['member_id'] = $member_id;
+                header("Location: ../templates/dashboard.php");
             }
             else{
                 header("Location: ../templates/login.html"); 

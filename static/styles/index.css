@@ -30,9 +30,8 @@ h6.promotext{
     /* margin: auto;  */
     /* background-image: linear-gradient(to bottom right, #512da9,#c5cae9 ); */
     /* font-size: 70px;  */
-    background-image: linear-gradient(to bottom right, #23416B ,#B04276);
+    background-image: linear-gradient(to bottom right, #23416B ,#B04276) !important;
     color: white;
-
 }
 
 .page-footer{
