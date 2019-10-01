@@ -28,11 +28,13 @@ body {
 
 .main-card {
     display: inline-block;
+    /* display:flex; */
     margin: auto;
     padding: 32px 48px 0px 48px;
     /* background-image: linear-gradient(to bottom right, #140078,#8559da  );*/
     background-image: linear-gradient(to bottom right,#23416B,#B04276) ;
     border-radius: 1vw;
+    height: 65vh;
 }
 
 
