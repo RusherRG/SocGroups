@@ -27,10 +27,10 @@
            $_SESSION['loggedIn'] = true;
            $_SESSION['member_id'] = $member_id;
            $_SESSION['username'] = $name;
-           header("Location: ../templates/dashboard.php"); 
+           header("Location:".$codepath."dashboard.php"); 
         }
         else{
-            header("Location: ../templates/index.html"); 
+            header("Location:".$codepath."login.php"); 
         }
 
     }
@@ -53,14 +53,19 @@
                 $member_id = pg_fetch_result($result,0,0);
                 $_SESSION['loggedIn'] = true;
                 $_SESSION['member_id'] = $member_id;
-                header("Location: ../templates/dashboard.php");
+                header("Location:".$codepath."dashboard.php"); 
             }
             else{
-                header("Location: ../templates/login.html"); 
+                header("Location:".$codepath."login.php"); 
             }
         } catch(Exception $e){
             echo "Failed";
         }
+    }
+
+    else{
+        //illegal access, redirect to index
+        header("Location:".$codepath."index.html");
     }
     
     

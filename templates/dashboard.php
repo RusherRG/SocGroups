@@ -3,6 +3,11 @@
 <?php
     session_start();
     require_once("../php/config.php");
+    // print($_SESSION['loggedIn']);
+    if(!isset($_SESSION['loggedIn'])){
+        // echo "alert('Please login first');";
+        header("Location:./login.php");
+    }
 ?>
 <head>
     <meta charset="UTF-8">
@@ -34,11 +39,11 @@
                 <a href="./index.html" style="color:white; margin:20px; float:left; font-size: 28px;">SocGroups</a>
                     
                 <ul class="right hide-on-med-and-down" style="margin: 10px;">
-                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Sign in</a>
+                    <li style="float: right; margin: 20px;"><a href="../php/logout.php" style="color:white;">Log out</a>
                     </li>
-                    <li style="float: right; margin: 20px;"><a href="./login.html" style="color:white;">Contact
+                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;">Contact
                             us</a></li>
-                    <li style="float: right; margin: 20px;"><a href="" style="color:white;"></a>About us</a></li>
+                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;"></a>About us</a></li>
                 </ul>
             </div>
         </div>
@@ -53,10 +58,18 @@
         <!-- <div style="margin-left:5%; margin-right:5%;"> -->
             <!-- <center> -->
                 <div class="row" style="display:flex">
-                    <div class="sidebar col s4">
-                        <h3 class="etext">Hello <?php echo $_SESSION['username'];?></h3>
+                    <div class="sidebar card col s4">
+                        <h4 class="etext">Hello <?php echo $_SESSION['username'];?></h4>
+                        <div class="collection tilegroup">
+                            <a href="#!" class="collection-item tileitem active">Home</a>
+                            <a href="#!" class="collection-item tileitem">Profile</a>
+                            <a href="#!" class="collection-item tileitem">Groups</a>
+                            <a href="#!" class="collection-item tileitem">Notices</a>
+                            <a href="#!" class="collection-item tileitem">Visitors</a>
+                         </div>
                     </div>
                     <div class="content col s8">
+
                         <h3>Hellooooo</h3>
                     </div>
                 </div>
@@ -69,8 +82,8 @@
                 <div class="row">
                     <h5 class="white-text">Links</h5>
                     <ul>
-                        <li class="white-text"><a href='./login.html'>Get started!</a></li>
-                        <li class="white-text"><a href='./login.html'>About us</a></li>
+                        <li class="white-text"><a href='./login.php'>Get started!</a></li>
+                        <li class="white-text"><a href='./login.php'>About us</a></li>
                     </ul>
                     <p></p>
                 </div>

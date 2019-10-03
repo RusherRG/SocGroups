@@ -12,6 +12,29 @@
     <title>SocGroups - Sign in</title>
 </head>
 
+<?php
+require_once("../php/config.php");
+session_start();
+// print($_SESSION['loggedIn'] . "    " . $_SESSION['username']);
+if(isset($_SESSION['loggedIn'])){   
+    header("Location:./dashboard.php");
+}
+if(isset($_GET)){
+    if(isset($_GET['loggedOut'])){
+        $cardmsg = "<b style='font-size:50px;'>Thank you!</b>
+        <br>
+        <i style='font-size:20px;'>Sign in or register to get started with SocGroups</i>";
+    }
+    else{
+        $cardmsg = "<b style='font-size:50px;'>Welcome back!</b>
+        <br>
+        <i style='font-size:20px;'>Sign in or register to get started with SocGroups</i>";
+    }
+}
+
+?>
+
+
 <body style=" background-size: 100%; background-position: center;">
     <div class="container">
         <div class="col s12 m12">
@@ -25,7 +48,7 @@
                                 onclick="switch_tab('reg')">Sign Up</a>
                         </div>
                         <div id="login-div" style="display: flex">
-                            <form class="card login-card" method='POST' action="../php/login.php">
+                            <form class="card login-card" method='POST' action= <?php echo"".$phppath."login_check.php";?>>
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
@@ -45,7 +68,7 @@
                             </form>
                         </div>
                         <div id="register-div" style="display: None">
-                            <form class="card register-card" method='POST' action="../php/login.php">
+                            <form class="card register-card" method='POST' action=<?php echo"".$phppath."login_check.php";?>>
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">person</i>
@@ -76,10 +99,13 @@
                         </div>
                     </div>
                     <div class="col s6 m6">
-                        <div class="center-align" style="color:white; padding: 10vh 0vh">
-                            <b style="font-size:50px;">Welcome back!</b>
+                        <div class="center-align" id="cardtext" style="color:white; padding: 10vh 0vh">
+                        <?php
+                            echo $cardmsg;
+                        ?>
+                            <!-- <b style="font-size:50px;">Welcome back!</b>
                             <br>
-                            <i style="font-size:20px; ">Sign in or register to get started with SocGroups</i>
+                            <i style="font-size:20px; ">Sign in or register to get started with SocGroups</i> -->
                         </div>
                     </div>
                 </div>
