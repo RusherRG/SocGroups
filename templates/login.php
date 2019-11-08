@@ -13,7 +13,7 @@
 </head>
 
 <?php
-require_once("../php/config.php");
+// require_once("../php/config.php");
 session_start();
 // print($_SESSION['loggedIn'] . "    " . $_SESSION['username']);
 if(isset($_SESSION['loggedIn'])){   
