@@ -13,7 +13,7 @@
 </head>
 
 <?php
-// require_once("../php/config.php");
+require_once("../php/config.php");
 session_start();
 // print($_SESSION['loggedIn'] . "    " . $_SESSION['username']);
 if(isset($_SESSION['loggedIn'])){   
@@ -48,7 +48,7 @@ if(isset($_GET)){
                                 onclick="switch_tab('reg')">Sign Up</a>
                         </div>
                         <div id="login-div" style="display: flex">
-                            <form class="card login-card" method='POST' action= <?php echo"".$phppath."login_check.php";?>>
+                            <form class="card login-card" method='POST' onsubmit="return validateLogin()" action= <?php echo"".$phppath."login_check.php";?>>
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
@@ -62,7 +62,7 @@ if(isset($_GET)){
                                     </div>
                                     <!-- <input type="submit" class="waves-effect waves-light btn submit" onclick="login()" value="Login"> -->
                                     <div class='col s12 center-align'>
-                                        <button class="waves-effect waves-light btn submit" type="submit">Login</button>
+                                        <button class="waves-effect waves-light btn submit" type="submit" onclick="login()">Login</button>
                                     </div>
                                 </div>
                             </form>

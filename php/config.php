@@ -2,7 +2,7 @@
     $host = "localhost";
     $dbname = "socgroups";
     $user = "postgres";
-    $password = "kjsce";
+    $password = "netra";
     try{
         $conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
     }catch(Exception $e){
@@ -10,11 +10,11 @@
         exit;
     }
 
-    $codepath="http://localhost:8081/SocGroups/templates/";
-    $phppath="http://localhost:8081/SocGroups/php/";
-    $imagepath="http://localhost:8081/SocGroups/images/";
-    $jspath="http://localhost:8081/SocGroups/static/js/";
-    $csspath="http://localhost:8081/SocGroups/static/styles/";
+    $codepath="http://localhost/SocGroups/templates/";
+    $phppath="http://localhost/SocGroups/php/";
+    $imagepath="http://localhost/SocGroups/images/";
+    $jspath="http://localhost/SocGroups/static/js/";
+    $csspath="http://localhost/SocGroups/static/styles/";
 
     // print_r($db_conn);
 ?>
