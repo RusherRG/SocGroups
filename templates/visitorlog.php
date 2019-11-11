@@ -77,7 +77,7 @@ $phone = pg_fetch_result($result, 0, 2);
                 </div>
             </div>
             <div class="right-container col s9">
-                <div class="card profile">
+                <!-- <div class="card profile">
                     <div class="row">
                         <div class="profile-picture col s2">
                             <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img>
@@ -93,22 +93,40 @@ $phone = pg_fetch_result($result, 0, 2);
                                     <span class="profile-tag">Email: </span>
                                     <span class="profile-tag-info"><?php echo $email; ?></span>
                                 </li>
-                                <!-- <li>
+                                <li>
                                     <span class="profile-tag">Address: </span>
                                     <span class="profile-tag-info">Mickey Mouse clubhouse</span>
-                                </li> -->
+                                </li>
                             </ul>
                         </div>
                     </div>
+                </div> -->
+                <div class="row">
+                    <!-- <span>Select society: </span> -->
+                    <select class="card" style="display:block;">
+                        <?php
+                        $soc_query = "SELECT s.name from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $soc_result = pg_query($conn, $soc_query);
+                        if (pg_num_rows($soc_result) > 0) {
+                            for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
+                                // print_r(pg_fetch_result($soc_result, $i, 1));
+                                echo "<option>" . pg_fetch_result($soc_result, $i, 0) . "</option>";
+                            }
+                        } else {
+                            echo "<option disabled>No societies yet</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <div class="card notices">
                     <div class="notices-header">
-                        Your Societies
+                        Visitor Log
                     </div>
+
                     <ul class="notif-menu">
                         <?php
-                        $soc_query = "SELECT s.name, s.address from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
-                        $soc_result = pg_query($conn, $soc_query);
+                        $visitor_query = "SELECT s.name, s.address from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $visitor_result = pg_query($conn, $soc_query);
                         if (pg_num_rows($soc_result) > 0) {
                             for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
                                 // print_r(pg_fetch_result($soc_result, $i, 1));
@@ -130,10 +148,6 @@ $phone = pg_fetch_result($result, 0, 2);
                             <br><span class="notice-date">10 hours ago</span>
                         </li> -->
                     </ul>
-                    <div class="row center col s12 m12">
-                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>   
-                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">group_add</i>Join society</a>
-                    </div>
                 </div>
             </div>
         </div>
