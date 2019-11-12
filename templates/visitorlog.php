@@ -13,6 +13,7 @@ $result = pg_query($conn, $query);
 $email = pg_fetch_result($result, 0, 0);
 $name = pg_fetch_result($result, 0, 1);
 $phone = pg_fetch_result($result, 0, 2);
+
 ?>
 
 <head>
@@ -103,42 +104,31 @@ $phone = pg_fetch_result($result, 0, 2);
                 </div> -->
                 <div class="row">
                     <!-- <span>Select society: </span> -->
-                    <select class="card" style="display:block;">
+                    <select id="visitor-select" class="card" style="display:block;" onchange="getVisitors(<?php echo $_SESSION['member_id']; ?>)">
+                        <option value=0 selected>--Select a society--</option>
                         <?php
-                        $soc_query = "SELECT s.name from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $soc_query = "SELECT s.name, s.society_id from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
                         $soc_result = pg_query($conn, $soc_query);
                         if (pg_num_rows($soc_result) > 0) {
                             for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
                                 // print_r(pg_fetch_result($soc_result, $i, 1));
-                                echo "<option>" . pg_fetch_result($soc_result, $i, 0) . "</option>";
+                                echo "<option value=" . pg_fetch_result($soc_result, $i, 1) . ">" . pg_fetch_result($soc_result, $i, 0) . "</option>";
                             }
                         } else {
                             echo "<option disabled>No societies yet</option>";
                         }
                         ?>
+                        <option value=1>1</option>
                     </select>
                 </div>
+                <div><span id='test-span'></span></div>
                 <div class="card notices">
                     <div class="notices-header">
                         Visitor Log
                     </div>
 
-                    <ul class="notif-menu">
-                        <?php
-                        $visitor_query = "SELECT s.name, s.address from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
-                        $visitor_result = pg_query($conn, $soc_query);
-                        if (pg_num_rows($soc_result) > 0) {
-                            for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
-                                // print_r(pg_fetch_result($soc_result, $i, 1));
-                                echo "<li class='notice-menu-item card hoverable'>
-                            <span>" . pg_fetch_result($soc_result, $i, 0) . "</span>
-                            <br><span>" . pg_fetch_result($soc_result, $i, 1) . "</span>
-                        </li>";
-                            }
-                        } else {
-                            echo "<li class='notice-menu-item card hoverable' style='text-align:center;'><span>No societies yet</span></li>";
-                        }
-                        ?>
+                    <ul id="visitor-list" class="notif-menu">
+                        
                         <!-- <li class="notice-menu-item">
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
@@ -190,7 +180,7 @@ $phone = pg_fetch_result($result, 0, 2);
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <!-- <script type="text/javascript" src="static/js/index.js"></script> -->
+    <script type="text/javascript" src="../static/js/visitorlog.js"></script>
 </body>
 
 </html>

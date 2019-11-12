@@ -1,0 +1,24 @@
+<?php
+require_once('../php/config.php');
+if (isset($_GET['society']) && isset($_GET['member'])) {
+    // echo "yayy";
+    $soc_id = $_GET['society'];
+    $member_id = $_GET['member'];
+    $visitor_query = "SELECT v.name, v.phone, v.email, l.roomno, l.datetime, l.approval from visitor as v inner join visitorlog as l on v.visitor_id=l.visitor_id inner join comprises as c on c.roomno=l.roomno where c.member_id=$member_id and c.society_id=$soc_id and l.society_id=$soc_id;";
+    $visitor_result = pg_query($conn, $visitor_query);
+    if (pg_num_rows($visitor_result) > 0) {
+        for ($i = 0; $i < pg_num_rows($visitor_result); $i++) {
+            // print_r(pg_fetch_result($soc_result, $i, 1));
+            echo "<li class='notice-menu-item card hoverable'>
+                            <h5>" . pg_fetch_result($visitor_result, $i, 0) . "</h5>
+                            <br><span>Phone: " . pg_fetch_result($visitor_result, $i, 1) . "</span>
+                            <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
+                            <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
+                            <br><span>Date: " . pg_fetch_result($visitor_result, $i, 4) . "</span>
+                            <br><span>Approval: " . pg_fetch_result($visitor_result, $i, 5) . "</span>
+                        </li>";
+        }
+    } else {
+        echo "<li class='notice-menu-item card hoverable' style='text-align:center;'><span>No visitors yet</span></li>";
+    }
+}
