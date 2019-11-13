@@ -10,7 +10,27 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/login.css">
     <title>SocGroups - Sign in</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
+<script>
+// $(document).ready(function() {
+//   var welcome = $("#welcome");
+//   var login = $("#login");
+// welcome.click(function(){
+//     welcome.hide();
+// });
+// login.click(function(){
+//     var email = $('#log_email').text;
+//     var password = $('#log_password').text;
+//     data = {
+//         'email': email,
+//         'password': password,
+//     }
+//     console.log(data);
+// });
+// });
+// </script>
 
 <?php
 require_once("../php/config.php");
@@ -29,6 +49,12 @@ if(isset($_GET)){
         $cardmsg = "<b style='font-size:50px;'>Welcome back!</b>
         <br>
         <i style='font-size:20px;'>Sign in or register to get started with SocGroups</i>";
+    }
+
+    if(isset($_GET['errormsg'])){
+        echo '<script language="javascript">';
+        echo "alert('".$_GET['errormsg']."')";
+        echo '</script>';
     }
 }
 
@@ -52,53 +78,53 @@ if(isset($_GET)){
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
-                                        <input class='validate' type='email' name='log_email' id='log_email' />
+                                        <input class='validate' type='email' name='log_email' id='log_email' required />
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
-                                        <input class='validate' type='password' name='log_password' id='log_password' />
+                                        <input class='validate' type='password' name='log_password' id='log_password' required/>
                                         <label for='password'>Password</label>
                                     </div>
                                     <!-- <input type="submit" class="waves-effect waves-light btn submit" onclick="login()" value="Login"> -->
                                     <div class='col s12 center-align'>
-                                        <button class="waves-effect waves-light btn submit" type="submit" onclick="login()">Login</button>
+                                        <button id="login" class="waves-effect waves-light btn submit" type="submit" onclick="login()">Login</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div id="register-div" style="display: None">
-                            <form class="card register-card" method='POST' action=<?php echo"".$phppath."login_check.php";?>>
+                            <form class="card register-card" method='POST' onsubmit="return validateRegister()" action=<?php echo"".$phppath."login_check.php";?>>
                                 <div class='row'>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">person</i>
-                                        <input class='validate' type='text' name='name' id='name' />
+                                        <input class='validate' type='text' name='name' id='name' required/>
                                         <label for='name'>Name</label>
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">email</i>
-                                        <input class='validate' type='email' name='reg_email' id='reg_email' />
+                                        <input class='validate' type='email' name='reg_email' id='reg_email' required/>
                                         <label for='email'>Email</label>
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">phone</i>
-                                        <input class='validate' type='tel' name='phone' id='phone' />
+                                        <input class='validate' type='tel' name='phone' id='phone' required/>
                                         <label for='phone'>Phone No.</label>
                                     </div>
                                     <div class='input-field col s12'>
                                         <i class="material-icons prefix" style="color: #23416B">vpn_key</i>
-                                        <input class='validate' type='password' name='reg_password' id='reg_password' />
+                                        <input class='validate' type='password' name='reg_password' id='reg_password' required/>
                                         <label for='password'>Password</label>
                                     </div>
                                     <div class='col s12 center-align'>
-                                        <button class="waves-effect waves-light btn submit"
+                                        <button id="reg" class="waves-effect waves-light btn submit"
                                             onclick="register()">Register</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col s6 m6">
+                    <div id="welcome" class="col s6 m6">
                         <div class="center-align" id="cardtext" style="color:white; padding: 10vh 0vh">
                         <?php
                             echo $cardmsg;

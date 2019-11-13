@@ -77,7 +77,7 @@ $phone = pg_fetch_result($result, 0, 2);
                 </div>
             </div>
             <div class="right-container col s9">
-                <div class="card profile">
+                <!-- <div class="card profile">
                     <div class="row">
                         <div class="profile-picture col s2">
                             <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img>
@@ -100,20 +100,40 @@ $phone = pg_fetch_result($result, 0, 2);
                             </ul>
                         </div>
                     </div>
+                </div> -->
+                <div class="row">
+                    <!-- <span>Select society: </span> -->
+                    <select id="notice-select" class="card" style="display:block;" onchange="getNotices(<?php echo $_SESSION['member_id']; ?>)">
+                        <option value=0 selected>--Select a society--</option>
+                        <?php
+                        $soc_query = "SELECT s.name, s.society_id from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $soc_result = pg_query($conn, $soc_query);
+                        if (pg_num_rows($soc_result) > 0) {
+                            for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
+                                // print_r(pg_fetch_result($soc_result, $i, 1));
+                                echo "<option value=" . pg_fetch_result($soc_result, $i, 1) . ">" . pg_fetch_result($soc_result, $i, 0) . "</option>";
+                            }
+                        } else {
+                            echo "<option disabled>No societies yet</option>";
+                        }
+                        ?>
+                        <!-- <option value=1>1</option> -->
+                    </select>
                 </div>
+                <div><span id='test-span'></span></div>
                 <div class="card notices">
                     <div class="notices-header">
-                        Group Notices
+                        Society Notices
                     </div>
-                    <ul class="notif-menu">
-                        <li class="notice-menu-item">
+                    <ul id="notice-list" class="notif-menu">
+                        <!-- <li class="notice-menu-item">
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
                         </li>
                         <li class="notice-menu-item">
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -157,7 +177,7 @@ $phone = pg_fetch_result($result, 0, 2);
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <!-- <script type="text/javascript" src="static/js/index.js"></script> -->
+    <script type="text/javascript" src="../static/js/notices.js"></script>
 </body>
 
 </html>

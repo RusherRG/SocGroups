@@ -72,3 +72,41 @@ function validateLogin() {
     }
     return true;
 }
+
+function validateRegister() { 
+    email = document.getElementById('reg_email');
+    password = document.getElementById('reg_password');
+    phone = document.getElementById('phone');
+    name = document.getElementById('name');
+    if(email.value==""){
+        window.alert('Please enter your email');
+        email.focus();
+        return false;
+    }
+    if(/\s/.test(email.value)){
+        window.alert('Please enter a valid email');
+        email.focus();
+        return false;
+    }
+    if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)){
+        window.alert('Please enter a valid email');
+        email.focus();
+        return false;
+    }
+    if(password.value==""){
+        window.alert('Please enter your password');
+        password.focus();
+        return false;
+    }
+    if(/\s/.test(password.value)){
+        window.alert('Please enter a valid password.\nNo spaces allowed.');
+        password.focus();
+        return false;
+    }
+    if(name.value==""){
+        window.alert('Please enter your name');
+        email.focus();
+        return false;
+    }
+    return true;
+}

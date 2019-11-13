@@ -8,12 +8,11 @@ if (!isset($_SESSION['loggedIn'])) {
     // echo "alert('Please login first');";
     header("Location:./login.php");
 }
-$query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
-$result = pg_query($conn, $query);
-$email = pg_fetch_result($result, 0, 0);
-$name = pg_fetch_result($result, 0, 1);
-$phone = pg_fetch_result($result, 0, 2);
-
+// $query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
+// $result = pg_query($conn, $query);
+// $email = pg_fetch_result($result, 0, 0);
+// $name = pg_fetch_result($result, 0, 1);
+// $phone = pg_fetch_result($result, 0, 2);
 ?>
 
 <head>
@@ -107,7 +106,7 @@ $phone = pg_fetch_result($result, 0, 2);
                     <select id="visitor-select" class="card" style="display:block;" onchange="getVisitors(<?php echo $_SESSION['member_id']; ?>)">
                         <option value=0 selected>--Select a society--</option>
                         <?php
-                        $soc_query = "SELECT s.name, s.society_id from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $soc_query = "SELECT s.name, s.society_id, c.role from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
                         $soc_result = pg_query($conn, $soc_query);
                         if (pg_num_rows($soc_result) > 0) {
                             for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
@@ -118,7 +117,7 @@ $phone = pg_fetch_result($result, 0, 2);
                             echo "<option disabled>No societies yet</option>";
                         }
                         ?>
-                        <option value=1>1</option>
+                        <!-- <option value=1>1</option> -->
                     </select>
                 </div>
                 <div><span id='test-span'></span></div>

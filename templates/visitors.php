@@ -4,19 +4,53 @@ if (isset($_GET['society']) && isset($_GET['member'])) {
     // echo "yayy";
     $soc_id = $_GET['society'];
     $member_id = $_GET['member'];
-    $visitor_query = "SELECT v.name, v.phone, v.email, l.roomno, l.datetime, l.approval from visitor as v inner join visitorlog as l on v.visitor_id=l.visitor_id inner join comprises as c on c.roomno=l.roomno where c.member_id=$member_id and c.society_id=$soc_id and l.society_id=$soc_id;";
+    $role_query = "SELECT c.role from comprises as c where c.member_id=$member_id and c.society_id=$soc_id;";
+    $role_result = pg_query($conn, $role_query);
+    if (pg_num_rows($role_result) == 1) {
+        if (pg_fetch_result($role_result, 0, 0) == "Admin" || pg_fetch_result($role_result, 0, 0) == "Guard")
+            echo "<a class='waves-effect waves-light btn-large' style='width:100%;' href='manage_visitor.php'>Manage visitor log</a> ";
+    }
+    $visitor_query = "SELECT v.name, v.phone, v.email, l.roomno, l.datetime, l.approval, v.visitor_id from visitor as v inner join visitorlog as l on v.visitor_id=l.visitor_id inner join comprises as c on c.roomno=l.roomno where c.member_id=$member_id and c.society_id=$soc_id and l.society_id=$soc_id;";
     $visitor_result = pg_query($conn, $visitor_query);
     if (pg_num_rows($visitor_result) > 0) {
         for ($i = 0; $i < pg_num_rows($visitor_result); $i++) {
             // print_r(pg_fetch_result($soc_result, $i, 1));
-            echo "<li class='notice-menu-item card hoverable'>
+            if (pg_fetch_result($visitor_result, $i, 5) != null) {
+                if (pg_fetch_result($visitor_result, $i, 5) == "t") {
+                    echo "<li class='notice-menu-item card hoverable'>
                             <h5>" . pg_fetch_result($visitor_result, $i, 0) . "</h5>
                             <br><span>Phone: " . pg_fetch_result($visitor_result, $i, 1) . "</span>
                             <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
                             <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
-                            <br><span>Date: " . pg_fetch_result($visitor_result, $i, 4) . "</span>
-                            <br><span>Approval: " . pg_fetch_result($visitor_result, $i, 5) . "</span>
+                            <br><span>Date: " . date('d/m/y, h:i a', strtotime(pg_fetch_result($visitor_result, $i, 4))) . "</span>
+                            <br><span>Approval: Approved</span>
                         </li>";
+                } else {
+                    echo "<li class='notice-menu-item card hoverable'>
+                            <h5>" . pg_fetch_result($visitor_result, $i, 0) . "</h5>
+                            <br><span>Phone: " . pg_fetch_result($visitor_result, $i, 1) . "</span>
+                            <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
+                            <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
+                            <br><span>Date: " . date('d/m/y, h:i a', strtotime(pg_fetch_result($visitor_result, $i, 4))) . "</span>
+                            <br><span>Approval: Denied</span>
+                        </li>";
+                }
+            } else {
+                $visitor_id = pg_fetch_result($visitor_result, $i, 6);
+                echo "<li class='notice-menu-item card hoverable'>
+                            <span class='notif-number'>PENDING</span>
+                            <h5>" . pg_fetch_result($visitor_result, $i, 0) . "</h5>
+                            <br><span>Phone: " . pg_fetch_result($visitor_result, $i, 1) . "</span>
+                            <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
+                            <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
+                            <br><span>Date: " . date('d/m/y, h:i a', strtotime(pg_fetch_result($visitor_result, $i, 4))) . "</span>
+                            <br><span>Approval: Pending</span>
+                            <br><br>
+                            <a class='waves-effect waves-light btn-large' style='width:49.5%;' href='permit.php?visitor=$visitor_id&society=$soc_id&p=true'>Approve</a>   
+                            <a class='waves-effect waves-light btn-large' style='width:49.5%;' href='permit.php?visitor=$visitor_id&society=$soc_id&p=false'>Deny</a>
+                    
+                        </li>";
+            }
         }
     } else {
         echo "<li class='notice-menu-item card hoverable' style='text-align:center;'><span>No visitors yet</span></li>";

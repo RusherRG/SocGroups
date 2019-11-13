@@ -150,3 +150,14 @@ nav {
 .notice-date {
     color: #8893b9;
 }
+
+.notice-reply{
+    display: block;
+    padding: 1%;
+    text-align: left;
+    background: #4b598a;
+    margin-top: 0.5%;
+    color: white;
+    font-size: 16px;
+    text-overflow: ellipsis;
+}
