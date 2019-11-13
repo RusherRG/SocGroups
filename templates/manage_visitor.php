@@ -283,7 +283,7 @@ if (isset($_GET['society']) && isset($_GET['role'])) {
                     <h5 class="white-text">Links</h5>
                     <ul>
                         <li class="white-text"><a href='./login.php'>Get started!</a></li>
-                        <li class="white-text"><a href='./login.php'>About us</a></li>
+                        <li class="white-text"><a href='./aboutus.html'>About us</a></li>
                     </ul>
                     <p></p>
                 </div>
