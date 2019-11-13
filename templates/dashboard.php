@@ -8,6 +8,11 @@ if (!isset($_SESSION['loggedIn'])) {
     // echo "alert('Please login first');";
     header("Location:./login.php");
 }
+if (isset($_GET['errormsg'])) {
+    echo '<script language="javascript">';
+    echo "alert('" . $_GET['errormsg'] . "')";
+    echo '</script>';
+}
 $query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
 $result = pg_query($conn, $query);
 $email = pg_fetch_result($result, 0, 0);
@@ -133,8 +138,8 @@ $phone = pg_fetch_result($result, 0, 2);
                         </li> -->
                     </ul>
                     <div class="row center col s12 m12">
-                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>
-                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">group_add</i>Join society</a>
+                        <a href="addsoc.php" class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>
+                        <a href="joinsoc.php" class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">group_add</i>Join society</a>
                     </div>
                 </div>
             </div>
