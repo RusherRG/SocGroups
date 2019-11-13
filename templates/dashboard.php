@@ -47,9 +47,8 @@ $phone = pg_fetch_result($result, 0, 2);
                 <ul class="right hide-on-med-and-down" style="margin: 10px;">
                     <li style="float: right; margin: 20px;"><a href="../php/logout.php" style="color:white;">Log out</a>
                     </li>
-                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;">Contact
-                            us</a></li>
-                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;"></a>About us</a></li>
+                    <li style="float: right; margin: 20px;"><a href="./dashboard.php" style="color:white;">Home</a></li>
+                    <!-- <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;"></a></a></li> -->
                 </ul>
             </div>
         </div>
@@ -59,20 +58,23 @@ $phone = pg_fetch_result($result, 0, 2);
         <div class="row">
             <div class="left-container col s3">
                 <div class="card left-card">
-                    <div class="card-header">Notifications</div>
+                    <div class="card-header">Navigation</div>
                     <ul class="notif-menu">
-                        <li class="notif-menu-item">
-                            Notices
-                            <span class="notif-number">10</span>
+                        <li class="notif-menu-item"><a style="color:white;" href="./dashboard.php">
+                                Dashboard</a>
                         </li>
-                        <li class="notif-menu-item">
-                            Visitor Log
-                            <span class="notif-number">10</span>
+                        <li class="notif-menu-item"><a style="color:white;" href="./notices.php">
+                                Notices</a>
+                            <span class="notif-number">NEW</span>
                         </li>
-                        <li class="notif-menu-item">
+                        <li class="notif-menu-item"><a style="color:white;" href="./visitorlog.php">
+                                Visitor Log</a>
+                            <span class="notif-number">NEW</span>
+                        </li>
+                        <!-- <li class="notif-menu-item">
                             Any reminder
 
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -131,7 +133,7 @@ $phone = pg_fetch_result($result, 0, 2);
                         </li> -->
                     </ul>
                     <div class="row center col s12 m12">
-                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>   
+                        <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>
                         <a class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">group_add</i>Join society</a>
                     </div>
                 </div>

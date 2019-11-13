@@ -8,6 +8,11 @@ if (!isset($_SESSION['loggedIn'])) {
     // echo "alert('Please login first');";
     header("Location:./login.php");
 }
+if (isset($_GET['errormsg'])) {
+    echo '<script language="javascript">';
+    echo "alert('" . $_GET['errormsg'] . "')";
+    echo '</script>';
+}
 // $query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
 // $result = pg_query($conn, $query);
 // $email = pg_fetch_result($result, 0, 0);
@@ -47,9 +52,8 @@ if (!isset($_SESSION['loggedIn'])) {
                 <ul class="right hide-on-med-and-down" style="margin: 10px;">
                     <li style="float: right; margin: 20px;"><a href="../php/logout.php" style="color:white;">Log out</a>
                     </li>
-                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;">Contact
-                            us</a></li>
-                    <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;"></a>About us</a></li>
+                    <li style="float: right; margin: 20px;"><a href="./dashboard.php" style="color:white;">Home</a></li>
+                    <!-- <li style="float: right; margin: 20px;"><a href="./login.php" style="color:white;"></a></a></li> -->
                 </ul>
             </div>
         </div>
@@ -59,20 +63,23 @@ if (!isset($_SESSION['loggedIn'])) {
         <div class="row">
             <div class="left-container col s3">
                 <div class="card left-card">
-                    <div class="card-header">Notifications</div>
+                    <div class="card-header">Navigation</div>
                     <ul class="notif-menu">
-                        <li class="notif-menu-item">
-                            Notices
-                            <span class="notif-number">10</span>
+                        <li class="notif-menu-item"><a style="color:white;" href="./dashboard.php">
+                                Dashboard</a>
                         </li>
-                        <li class="notif-menu-item">
-                            Visitor Log
-                            <span class="notif-number">10</span>
+                        <li class="notif-menu-item"><a style="color:white;" href="./notices.php">
+                                Notices</a>
+                            <span class="notif-number">NEW</span>
                         </li>
-                        <li class="notif-menu-item">
+                        <li class="notif-menu-item"><a style="color:white;" href="./visitorlog.php">
+                                Visitor Log</a>
+                            <span class="notif-number">NEW</span>
+                        </li>
+                        <!-- <li class="notif-menu-item">
                             Any reminder
 
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -127,7 +134,7 @@ if (!isset($_SESSION['loggedIn'])) {
                     </div>
 
                     <ul id="visitor-list" class="notif-menu">
-                        
+
                         <!-- <li class="notice-menu-item">
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
