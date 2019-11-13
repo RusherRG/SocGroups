@@ -52,7 +52,11 @@ if (isset($_GET['society']) && isset($_GET['role'])) {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <title>SocGroups</title>
 </head>
-
+<style>
+    .btn, .btn-large {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 <body>
     <header>
         <div class="headcard" id="headcard">
@@ -159,27 +163,27 @@ if (isset($_GET['society']) && isset($_GET['role'])) {
                     $visitorForm = "<form action='addvisitor.php' method='POST'>
                         <div class='col s12 l8 offset-l2 white-text'>
                             <div class='col s12 center'>
-                                <h1 class='text-center teal-text light'><small>Add visitor entry</small></h1>
+                                <h1 class='text-center deep-purple-text light'><small>Add visitor entry</small></h1>
                             </div>
                             <div class='divider'></div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>person</i>
-                                <input id='name' name='name' type='text' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>person</i>
+                                <input id='name' name='name' type='text' class='deep-purple-text' required>
                                 <label for='full-name'>Name</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>email</i>
-                                <input id='email' name='email' type='email' class='teal-text'>
+                                <i class='material-icons prefix deep-purple-text'>email</i>
+                                <input id='email' name='email' type='email' class='deep-purple-text'>
                                 <label for='email'>Email</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>local_phone</i>
-                                <input id='phone' name='phone' type='tel' class='teal-text'>
+                                <i class='material-icons prefix deep-purple-text'>local_phone</i>
+                                <input id='phone' name='phone' type='tel' class='deep-purple-text'>
                                 <label for='full-name'>Phone</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='flatno' name='flatno' type='number' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='flatno' name='flatno' type='number' class='deep-purple-text' required>
                                 <label for='full-name'>Flat No.</label>
                             </div>
                             <div><input id='society' name='society' type='hidden' value=$soc_id></div>

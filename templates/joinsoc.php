@@ -49,7 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <title>SocGroups</title>
 </head>
-
+<style>
+    .btn {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 <body>
     <header>
         <div class="headcard" id="headcard">
@@ -97,11 +101,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <form action='joinsoc.php' method='POST'>
                         <div class='col s12 l8 offset-l2'>
                             <div class='col s12 center'>
-                                <h1 class='text-center teal-text light'><small>Join a society</small></h1>
+                                <h1 class='text-center deep-purple-text light'><small>Join a society</small></h1>
                             </div>
                             <div class='divider'></div>
-                            <div class="left col s2 teal-text">
-                                <i class='material-icons prefix teal-text'>people</i>
+                            <div class="left col s2 deep-purple-text">
+                                <i class='material-icons prefix deep-purple-text'>people</i>
                                 <span>Role</span>
                             </div>
                             <div class="col s5 center">
@@ -113,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <label for="guard">Security Guard</label>
                             </div>
                             <div class='col s12'>&nbsp;</div>
-                            <div class='col s12 teal-text'>Select a society</div>
+                            <div class='col s12 deep-purple-text'>Select a society</div>
                             <select name="soc-select" id="soc-select" class="card col s12" style="display:block; margin:2%;" required>
                                 <!-- <option>aaaaaaa</option> -->
                                 <?php
@@ -131,24 +135,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 ?>
                             </select>
                             <!-- <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='name' name='name' type='text' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='name' name='name' type='text' class='deep-purple-text' required>
                                 <label for='name'>Name</label>
                             </div>
 
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>location_on</i>
-                                <input id='address' name='address' type='text' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>location_on</i>
+                                <input id='address' name='address' type='text' class='deep-purple-text' required>
                                 <label for='address'>Address</label>
                             </div> -->
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='flat' name='flatno' type='number' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='flat' name='flatno' type='number' class='deep-purple-text' required>
                                 <label for='flat'>Your Flat No.</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='floor' name='floor' type='number' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='floor' name='floor' type='number' class='deep-purple-text' required>
                                 <label for='floor'>Your Floor No.</label>
                             </div>
 

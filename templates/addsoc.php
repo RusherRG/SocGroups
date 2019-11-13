@@ -28,11 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $society_id = pg_fetch_result($soc_result, 0, 0);
             $role_query = "INSERT INTO comprises(society_id, member_id, role,roomno,floorno) values ($society_id,$m_id,'Admin',$flatno,$floor);";
             $role_result = pg_query($conn, $role_query);
-            if($role_result){
+            if ($role_result) {
                 header('Location:dashboard.php?errormsg=Society created!');
             }
         }
-        
     }
 }
 ?>
@@ -50,6 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <title>SocGroups</title>
 </head>
+<style>
+    .btn {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 
 <body>
     <header>
@@ -96,30 +100,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <!-- <div class='container'> -->
                     <!-- <div class="row"> -->
                     <form action='addsoc.php' method='POST'>
-                        <div class='col s12 l8 offset-l2 white-text'>
+                        <div class='col s12 l8 offset-l2 deep-purple-text'>
                             <div class='col s12 center'>
-                                <h1 class='text-center teal-text light'><small>Create a society</small></h1>
+                                <h1 class='text-center deep-purple-text light'><small>Create a society</small></h1>
                             </div>
                             <div class='divider'></div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='name' name='name' type='text' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='name' name='name' type='text' class='deep-purple-text' required>
                                 <label for='name'>Name</label>
                             </div>
 
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>location_on</i>
-                                <input id='address' name='address' type='text' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>location_on</i>
+                                <input id='address' name='address' type='text' class='deep-purple-text' required>
                                 <label for='address'>Address</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='flat' name='flatno' type='number' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='flat' name='flatno' type='number' class='deep-purple-text' required>
                                 <label for='flat'>Your Flat No.</label>
                             </div>
                             <div class='input-field col s12'>
-                                <i class='material-icons prefix teal-text'>business</i>
-                                <input id='floor' name='floor' type='number' class='teal-text' required>
+                                <i class='material-icons prefix deep-purple-text'>business</i>
+                                <input id='floor' name='floor' type='number' class='deep-purple-text' required>
                                 <label for='floor'>Your Floor No.</label>
                             </div>
 

@@ -10,3 +10,7 @@
 .sidebar{
     background-color: #E2EAEF;
 }
+
+.btn{
+    background-image: linear-gradient(to bottom right,#23416b,#b04276);
+}

@@ -31,7 +31,11 @@ $phone = pg_fetch_result($result, 0, 2);
     <link rel="stylesheet" type="text/css" href="../static/styles/profile.css">
     <title>SocGroups - Dashboard</title>
 </head>
-
+<style>
+    .btn, .btn-large {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 <body>
     <header>
         <div class="headcard" id="headcard">
@@ -87,7 +91,9 @@ $phone = pg_fetch_result($result, 0, 2);
                 <div class="card profile">
                     <div class="row">
                         <div class="profile-picture col s2">
-                            <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img>
+                            
+                            <img width="150px" src="../images/user.png"></img>
+                            <!-- <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img> -->
                         </div>
                         <div class="profile-info col s10">
                             <div class="profile-name"><?php echo $name; ?></div>

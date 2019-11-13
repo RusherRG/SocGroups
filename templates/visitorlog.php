@@ -29,9 +29,13 @@ if (isset($_GET['errormsg'])) {
     <link rel="stylesheet" type="text/css" href="../static/styles/index.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/dash.css">
     <link rel="stylesheet" type="text/css" href="../static/styles/profile.css">
-    <title>SocGroups - Dashboard</title>
+    <title>SocGroups - Visitors</title>
 </head>
-
+<style>
+    .btn, .btn-large {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 <body>
     <header>
         <div class="headcard" id="headcard">

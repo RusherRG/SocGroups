@@ -32,7 +32,11 @@ $phone = pg_fetch_result($result, 0, 2);
     <link rel="stylesheet" type="text/css" href="../static/styles/profile.css">
     <title>SocGroups - Dashboard</title>
 </head>
-
+<style>
+    .btn {
+        background-image: linear-gradient(to bottom right, #23416b, #b04276);
+    }
+</style>
 <body>
     <header>
         <div class="headcard" id="headcard">

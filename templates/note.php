@@ -1,6 +1,6 @@
 <?php
 require_once('../php/config.php');
-if (isset($_GET['society']) && isset($_GET['member'])) {
+if (isset($_GET['society']) && isset($_GET['member']) && $_GET['society']!=0) {
     // echo "yayy";
     $soc_id = $_GET['society'];
     $member_id = $_GET['member'];
@@ -18,7 +18,7 @@ if (isset($_GET['society']) && isset($_GET['member'])) {
                             </div>
                         </form><br><br><br><br>";
     }
-    $notice_query = "SELECT n.message, m.name, n.datetime from notice as n inner join member as m on n.member_id=m.member_id where n.society_id=$soc_id order by notice_id;";
+    $notice_query = "SELECT n.message, m.name, n.datetime from notice as n inner join member as m on n.member_id=m.member_id where n.society_id=$soc_id order by datetime desc;";
     $notice_result = pg_query($conn, $notice_query);
     if (pg_num_rows($notice_result) > 0) {
         echo "<ul id='notice-menu-list' class='notif-menu'>";
@@ -28,7 +28,7 @@ if (isset($_GET['society']) && isset($_GET['member'])) {
             // print_r(pg_fetch_result($soc_result, $i, 1));
             // if (pg_fetch_result($notice_result, $i,3) == null) {
                 echo "<li class='notice-menu-item card hoverable'>
-                            <h6>" . pg_fetch_result($notice_result, $i, 0) . "</h6>
+                            <h5>" . pg_fetch_result($notice_result, $i, 0) . "</h5>
                             <br><span>" . pg_fetch_result($notice_result, $i, 1) . "</span>
                             <br><span class='notice-date'>" .date('d/m/y, h:i a', strtotime(pg_fetch_result($notice_result, $i, 2)))  . "</span>
                         </li>";

@@ -1,6 +1,6 @@
 <?php
 require_once('../php/config.php');
-if (isset($_GET['society']) && isset($_GET['member'])) {
+if (isset($_GET['society']) && isset($_GET['member']) && $_GET['society']!=0) {
     // echo "yayy";
     $soc_id = $_GET['society'];
     $member_id = $_GET['member'];
