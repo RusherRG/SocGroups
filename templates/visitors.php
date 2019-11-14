@@ -67,7 +67,7 @@ if (isset($_GET['society']) && isset($_GET['member']) && $_GET['society']!=0) {
                             <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
                             <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
                             <br><span>Date: " . date('d/m/y, h:i a', strtotime(pg_fetch_result($visitor_result, $i, 4))) . "</span>
-                            <br><span>Approval: Approved</span>
+                            <br><span class='teal-text'>Approval: Approved</span>
                         </li>";
                         } else {
                             echo "<li class='notice-menu-item card hoverable'>
@@ -76,7 +76,7 @@ if (isset($_GET['society']) && isset($_GET['member']) && $_GET['society']!=0) {
                             <br><span>Email: " . pg_fetch_result($visitor_result, $i, 2) . "</span>
                             <br><span>Room no: " . pg_fetch_result($visitor_result, $i, 3) . "</span>
                             <br><span>Date: " . date('d/m/y, h:i a', strtotime(pg_fetch_result($visitor_result, $i, 4))) . "</span>
-                            <br><span>Approval: Denied</span>
+                            <br><span class='red-text'>Approval: Denied</span>
                         </li>";
                         }
                     } else {

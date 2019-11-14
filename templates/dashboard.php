@@ -13,7 +13,7 @@ if (isset($_GET['errormsg'])) {
     echo "alert('" . $_GET['errormsg'] . "')";
     echo '</script>';
 }
-$query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
+$query = "SELECT member.email, member.name, member.phone from member where member.member_id=" . $_SESSION['member_id'] . ";";
 $result = pg_query($conn, $query);
 $email = pg_fetch_result($result, 0, 0);
 $name = pg_fetch_result($result, 0, 1);

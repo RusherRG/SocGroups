@@ -29,7 +29,7 @@ if (isset($_GET['society']) && isset($_GET['role'])) {
             } else {
                 $soc_name = "";
             }
-            $visitor_query = "SELECT v.name, v.phone, v.email, l.roomno, l.datetime, l.approval, v.visitor_id from visitor as v inner join visitorlog as l on v.visitor_id=l.visitor_id where l.society_id=$soc_id;";
+            $visitor_query = "SELECT v.name, v.phone, v.email, l.roomno, l.datetime, l.approval, v.visitor_id from visitor as v inner join visitorlog as l on v.visitor_id=l.visitor_id where l.society_id=$soc_id order by datetime desc;";
             $visitor_result = pg_query($conn, $visitor_query);
         } else {
             header('Location:visitorlog.php?errormsg=Unauthorized access to visitor log');
