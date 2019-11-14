@@ -16,7 +16,8 @@ if (isset($_GET['society']) && isset($_GET['member']) && $_GET['society']!=0) {
                                 <input type='hidden' name='member' value=$member_id>
                                 <button type='Submit' class='btn submit hoverable col s1'>Post</button>
                             </div>
-                        </form><br><br><br><br>";
+                        </form><br><br><br><br>
+                        <div class='divider'></div>";
     }
     $notice_query = "SELECT n.message, m.name, n.datetime from notice as n inner join member as m on n.member_id=m.member_id where n.society_id=$soc_id order by datetime desc;";
     $notice_result = pg_query($conn, $notice_query);

@@ -70,11 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['log_email'])) {
                 $member_id = pg_fetch_result($result, 0, 0);
                 $_SESSION['loggedIn'] = true;
                 $_SESSION['member_id'] = $member_id;
+                // $_SESSION['username'] = $name;
                 header("Location:" . $codepath . "dashboard.php");
                 // echo "yay";
             } else {
                 echo "noooo";
-                // header("Location:" . $codepath . "login.php?errormsg=Registration%20failed");
+                header("Location:" . $codepath . "login.php?errormsg=Registration%20failed");
             }
         }
     } catch (Exception $e) {
