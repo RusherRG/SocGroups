@@ -11,9 +11,10 @@ if (!isset($_SESSION['loggedIn'])) {
 if (isset($_GET['errormsg'])) {
     echo '<script language="javascript">';
     echo "alert('" . $_GET['errormsg'] . "')";
+    // echo 'window.location.replace("./notices.php")';
     echo '</script>';
 }
-$query = "SELECT member.email, member.name, member.phone from member where member.member_id=" . $_SESSION['member_id'] . ";";
+$query = "SELECT member.email, member.name, member.phone from member where member_id='" . $_SESSION['member_id'] . "';";
 $result = pg_query($conn, $query);
 $email = pg_fetch_result($result, 0, 0);
 $name = pg_fetch_result($result, 0, 1);
@@ -32,7 +33,7 @@ $phone = pg_fetch_result($result, 0, 2);
     <title>SocGroups - Dashboard</title>
 </head>
 <style>
-    .btn, .btn-large {
+    .btn {
         background-image: linear-gradient(to bottom right, #23416b, #b04276);
     }
 </style>
@@ -88,12 +89,10 @@ $phone = pg_fetch_result($result, 0, 2);
                 </div>
             </div>
             <div class="right-container col s9">
-                <div class="card profile">
+                <!-- <div class="card profile">
                     <div class="row">
                         <div class="profile-picture col s2">
-                            
-                            <img width="150px" src="../images/user.png"></img>
-                            <!-- <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img> -->
+                            <img width="150px" src="https://partycity6.scene7.com/is/image/PartyCity/_pdp_sq_?$_1000x1000_$&$product=PartyCity/294138"></img>
                         </div>
                         <div class="profile-info col s10">
                             <div class="profile-name"><?php echo $name; ?></div>
@@ -106,35 +105,56 @@ $phone = pg_fetch_result($result, 0, 2);
                                     <span class="profile-tag">Email: </span>
                                     <span class="profile-tag-info"><?php echo $email; ?></span>
                                 </li>
-                                <!-- <li>
+                                <li>
                                     <span class="profile-tag">Address: </span>
                                     <span class="profile-tag-info">Mickey Mouse clubhouse</span>
-                                </li> -->
+                                </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="card notices">
-                    <div class="notices-header">
-                        Your Societies
-                    </div>
-                    <ul class="notif-menu">
+                </div> -->
+                <div class="row">
+                    <!-- <span>Select society: </span> -->
+                    <select id="notice-select" class="card" style="display:block;" onchange="getNotices(<?php echo $_SESSION['member_id']; ?>)">
+                        <option value=0 selected>--Select a society--</option>
                         <?php
-                        $soc_query = "SELECT s.name, s.address from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
+                        $soc_query = "SELECT s.name, s.society_id from member as m inner join comprises as c on m.member_id=c.member_id inner join society as s on c.society_id=s.society_id where m.member_id=" . $_SESSION['member_id'] . ";";
                         $soc_result = pg_query($conn, $soc_query);
                         if (pg_num_rows($soc_result) > 0) {
                             for ($i = 0; $i < pg_num_rows($soc_result); $i++) {
                                 // print_r(pg_fetch_result($soc_result, $i, 1));
-                                echo "<li class='notice-menu-item card hoverable'>
-                            <span>" . pg_fetch_result($soc_result, $i, 0) . "</span>
-                            <br><span>" . pg_fetch_result($soc_result, $i, 1) . "</span>
-                        </li>";
+                                echo "<option value=" . pg_fetch_result($soc_result, $i, 1) . ">" . pg_fetch_result($soc_result, $i, 0) . "</option>";
                             }
                         } else {
-                            echo "<li class='notice-menu-item card hoverable' style='text-align:center;'><span>No societies yet</span></li>";
+                            echo "<option disabled>No societies yet</option>";
                         }
                         ?>
-                        <!-- <li class="notice-menu-item">
+                        <!-- <option value=1>1</option> -->
+                    </select>
+                </div>
+                <div><span id='test-span'></span></div>
+                <div class="card notices">
+                    <div class="notices-header">
+                        Society Notices
+                    </div>
+                    <div id="notice-list">
+
+                    </div>
+                    <!-- <ul id="notice-list" class="notif-menu"> -->
+                    <!-- <div class="row"> -->
+                    <!-- <form class='col s12' action='addnotice.php' method='POST'>
+                            <div class='row' style='margin:1%;'>
+                                <div class='input-field inline col s11'>
+                                    <input id='notice-area' class='materialize-textarea validate' data-length='200' placeholder='Add a notice...' type='text'>
+                                </div>
+                                <input type='hidden' name='society' value=$soc_id>
+                                <input type='hidden' name='member' value=$member_id>
+                                <button type='Submit' class='btn submit hoverable col s1'>Post</button>
+                            </div>
+                        </form> -->
+                    <!-- </div> -->
+
+                    <!-- <li class="notice-menu-item">
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
                         </li>
@@ -142,11 +162,7 @@ $phone = pg_fetch_result($result, 0, 2);
                             <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</span>
                             <br><span class="notice-date">10 hours ago</span>
                         </li> -->
-                    </ul>
-                    <div class="row center col s12 m12">
-                        <a href="addsoc.php" class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">add</i>Create society</a>
-                        <a href="joinsoc.php" class="waves-effect waves-light btn-large" style="width:49.5%;"><i class="material-icons left large">group_add</i>Join society</a>
-                    </div>
+                    <!-- </ul> -->
                 </div>
             </div>
         </div>
@@ -189,7 +205,7 @@ $phone = pg_fetch_result($result, 0, 2);
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-    <!-- <script type="text/javascript" src="static/js/index.js"></script> -->
+    <script type="text/javascript" src="../static/js/notices.js"></script>
 </body>
 
 </html>

@@ -47,3 +47,6 @@ h6.promotext{
     color: white;
     text-decoration: none;
 }
+.btn{
+    background-image: linear-gradient(to bottom right,#23416b,#b04276);
+}
